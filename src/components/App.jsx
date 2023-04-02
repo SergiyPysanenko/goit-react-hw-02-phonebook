@@ -31,10 +31,6 @@ export class App extends Component {
         }));
   };
 
-  formSubmitHandler = data => {
-    console.log(data);
-  };
-
   deleteContact = contactId => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== contactId),
