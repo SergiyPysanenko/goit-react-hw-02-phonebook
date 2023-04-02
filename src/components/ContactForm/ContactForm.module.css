@@ -21,17 +21,15 @@
     font-size:18px;
     padding:3px;
     margin-top:10px;
+    margin-left: 5px;
 }
     
 
 
 .button {
-    width:100px;
-    /* &:hover{
-        background-color:#dsads1;
-    } */
-
+    width:100px;  
 }
-/* &:hover{
-        background-color:#dsads1;
-    } */
+
+.button:hover {
+    background-color: rgb(145, 145, 245);
+}

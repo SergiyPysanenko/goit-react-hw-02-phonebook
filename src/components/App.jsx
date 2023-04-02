@@ -1,10 +1,10 @@
 
 import { Component } from 'react';
 import Filter from 'components/Filter/Filter';
-// import ContactList from 'components/ContactList/ContactList';
+import ContactList from 'components/ContactList/ContactList';
 import ContactForm from 'components/ContactForm/ContactForm';
 import { nanoid } from 'nanoid';
-// import { AppContainer } from './App.styled';
+
 
 export class App extends Component {
   state = {
@@ -45,20 +45,17 @@ export class App extends Component {
     this.setState({ filter: event.currentTarget.value });
   };
 
-
   componentDidUpdate(prevProps, prevState) {
     if (this.state.contacts !== prevState.contacts);
-    localStorage.setItem('contacts', JSON.stringify(this.state.contacts))
+    localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
   }
 
   componentDidMount() {
-   
     const contacts = localStorage.getItem('contacts');
     const parsedContacts = JSON.parse(contacts);
     if (parsedContacts) {
-      this.setState({contacts:parsedContacts})
+      this.setState({ contacts: parsedContacts });
     }
-    
   }
 
   render() {
@@ -70,21 +67,25 @@ export class App extends Component {
     );
 
     return (
-      <>
-        {/* <AppContainer> */}
-          <h2>Phonebook</h2>
-
-          <ContactForm onSubmit={this.addContact} />
-
-          <h2>Contacts</h2>
-
-          <Filter value={filter} onChange={this.changeFilter} />
-          {/* <ContactList
-            contacts={visibleContacts}
-            onDeleteContact={this.deleteContact}
-          /> */}
-        {/* </AppContainer> */}
-      </>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          marginTop: 200,
+          height: 100,
+          justifyContent: 'center',
+          alignItems:'center',
+        }}
+      >
+        <h2>Phonebook</h2>
+        <ContactForm onSubmit={this.addContact} />
+        <h2>Contacts</h2>
+        <Filter value={filter} onChange={this.changeFilter} />
+        <ContactList
+          contacts={visibleContacts}
+          onDeleteContact={this.deleteContact}
+        />
+      </div>
     );
   }
 }
