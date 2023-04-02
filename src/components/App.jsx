@@ -1,8 +1,8 @@
 
 import { Component } from 'react';
-// import Filter from 'components/Filter/Filter';
+import Filter from 'components/Filter/Filter';
 // import ContactList from 'components/ContactList/ContactList';
-// import ContactForm from 'components/ContactForm/ContactForm';
+import ContactForm from 'components/ContactForm/ContactForm';
 import { nanoid } from 'nanoid';
 // import { AppContainer } from './App.styled';
 
@@ -74,11 +74,11 @@ export class App extends Component {
         {/* <AppContainer> */}
           <h2>Phonebook</h2>
 
-          {/* <ContactForm onSubmit={this.addContact} /> */}
+          <ContactForm onSubmit={this.addContact} />
 
           <h2>Contacts</h2>
 
-          {/* <Filter value={filter} onChange={this.changeFilter} /> */}
+          <Filter value={filter} onChange={this.changeFilter} />
           {/* <ContactList
             contacts={visibleContacts}
             onDeleteContact={this.deleteContact}
